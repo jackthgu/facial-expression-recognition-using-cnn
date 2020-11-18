@@ -125,7 +125,7 @@ for category in data['Usage'].unique():
                 if GET_LANDMARKS:
                     #deprecated scipy.misc.imsave
                     #scipy.misc.imsave('temp.jpg', image)
-                    image_tmp.save('tmp.jpg')
+                    image_tmp.save('temp.jpg')
                     image2 = cv2.imread('temp.jpg')
                     face_rects = [dlib.rectangle(left=1, top=1, right=1280, bottom=720)]
                     face_landmarks = get_landmarks(image2, face_rects)
