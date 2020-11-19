@@ -21,8 +21,8 @@ class Network:
     activation = 'relu'
     loss = 'categorical_crossentropy'
     use_landmarks = True
-    use_hog_and_landmarks = True
-    use_hog_sliding_window_and_landmarks = True
+    use_hog_and_landmarks = False
+    use_hog_sliding_window_and_landmarks = False
     use_batchnorm_after_conv_layers = True
     use_batchnorm_after_fully_connected_layers = False
 
