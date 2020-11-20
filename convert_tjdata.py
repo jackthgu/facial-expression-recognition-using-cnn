@@ -127,7 +127,7 @@ for category in data['Usage'].unique():
                     #scipy.misc.imsave('temp.jpg', image)
                     image_tmp.save('temp.jpg')
                     image2 = cv2.imread('temp.jpg')
-                    face_rects = [dlib.rectangle(left=1, top=1, right=1280, bottom=720)]
+                    face_rects = [dlib.rectangle(left=1, top=1, right=47, bottom=47)]
                     face_landmarks = get_landmarks(image2, face_rects)
                     landmarks.append(face_landmarks)            
                 labels_list.append(get_new_label(labels[i], one_hot_encoding=ONE_HOT_ENCODING))
