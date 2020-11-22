@@ -36,7 +36,7 @@ class Hyperparams:
 
 class Training:
     batch_size = 128
-    epochs = 13
+    epochs = 10
     snapshot_step = 500
     vizualize = True
     logs_dir = "logs"

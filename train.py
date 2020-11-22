@@ -11,6 +11,8 @@ import os
 from data_loader import load_data 
 from parameters import DATASET, TRAINING, HYPERPARAMS, NETWORK
 from model import build_model
+from tensorflow import reset_default_graph
+import pdb
 
 def train(optimizer=HYPERPARAMS.optimizer, optimizer_param=HYPERPARAMS.optimizer_param, 
         learning_rate=HYPERPARAMS.learning_rate, keep_prob=HYPERPARAMS.keep_prob, 
@@ -32,7 +34,7 @@ def train(optimizer=HYPERPARAMS.optimizer, optimizer_param=HYPERPARAMS.optimizer
                         max_checkpoints=TRAINING.max_checkpoints)
 
                 #tflearn.config.init_graph(seed=None, log_device=False, num_cores=6)
-
+                pdb.set_trace()
                 if train_model:
                         # Training phase
                         print( "start training...")
@@ -52,6 +54,7 @@ def train(optimizer=HYPERPARAMS.optimizer, optimizer_param=HYPERPARAMS.optimizer
 
                         start_time = time.time()
                         if NETWORK.use_landmarks:
+                                print ('use landmark ')
                                 model.fit([data['X'], data['X2']], data['Y'],
                                         validation_set=([validation['X'], validation['X2']], validation['Y']),
                                         snapshot_step=TRAINING.snapshot_step,
@@ -124,6 +127,6 @@ def evaluate(model, X, X2, Y):
 #        train()
 #if args.evaluate=="yes" or args.evaluate=="Yes" or args.evaluate=="YES":
 #        train(train_model=False)
-
+reset_default_graph()
 train()
 print('endgame')
